@@ -1,0 +1,6 @@
+transformers
+datasets
+azureml-sdk
+fastapi
+uvicorn
+scikit-learn
