@@ -106,4 +106,4 @@ Edit
 
 
 
-Ask ChatGPT
+Ask ChatGP
