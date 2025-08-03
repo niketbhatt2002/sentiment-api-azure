@@ -1,60 +1,68 @@
+## 🚀 Sentiment Analysis API (Azure + Docker)
 
-# Sentiment API (Azure Deployment)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/niketbhatt2002/sentiment-api-azure/docker-build.yml?label=Build&logo=github&style=flat-square)](https://github.com/niketbhatt2002/sentiment-api-azure/actions)
+[![Docker](https://img.shields.io/badge/docker-ready-blue?logo=docker&style=flat-square)](https://hub.docker.com/)
+[![Azure](https://img.shields.io/badge/hosted%20on-Azure-blue?logo=microsoft-azure&style=flat-square)](https://portal.azure.com/)
+[![License](https://img.shields.io/github/license/niketbhatt2002/sentiment-api-azure?style=flat-square)](LICENSE)
 
-A simple and scalable sentiment analysis API built with Python and deployed on Microsoft Azure. This project leverages natural language processing to determine the sentiment (positive, negative, neutral) of a given text input via a RESTful API.
+A lightweight and production-ready **sentiment analysis API** built with **Python**, containerized with **Docker**, and deployed to **Azure App Service**. It accepts raw text and returns the sentiment label and confidence scores using modern NLP tools.
 
-## 🚀 Features
+---
 
-- 🔍 Analyze sentiment of text input (sentence or paragraph)
-- 🌐 REST API endpoint powered by FastAPI / Flask *(assumed)*
-- ☁️ Hosted on Microsoft Azure App Service
-- 📊 Returns sentiment label and confidence scores
-- 🔄 Easy to integrate into other apps or frontend tools
+## ✨ Features
 
-## 🛠️ Tech Stack
+- 🔍 Analyze sentiment (positive / neutral / negative)
+- ⚡ Fast and RESTful API (FastAPI-based)
+- 🐳 Dockerized for consistency across environments
+- ☁️ Azure-ready deployment
+- 📊 Returns label + probability scores
+- 🧪 Swagger UI for testing
 
-- **Backend**: Python, FastAPI / Flask
-- **NLP**: TextBlob / NLTK / HuggingFace Transformers *(please update based on your code)*
-- **Deployment**: Azure App Service
-- **API Testing**: Postman / Swagger UI
+---
 
-## 📦 Setup Locally
+## 🔧 Tech Stack
 
-### 1. Clone the repository
+- **Framework**: FastAPI
+- **NLP**: TextBlob / HuggingFace / VADER *(update as needed)*
+- **Deployment**: Docker + Azure App Service
+- **CI/CD**: GitHub Actions
+- **Docs**: Auto-generated via Swagger UI
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
 
 ```bash
 git clone https://github.com/niketbhatt2002/sentiment-api-azure.git
 cd sentiment-api-azure
-2. Create a virtual environment
+2. Run with Docker
+bash
+Copy
+Edit
+docker build -t sentiment-api .
+docker run -d -p 8000:8000 sentiment-api
+Then go to: http://localhost:8000/docs for Swagger UI.
+
+3. Without Docker (local)
 bash
 Copy
 Edit
 python -m venv venv
-source venv/bin/activate   # On Windows: venv\Scripts\activate
-3. Install dependencies
-bash
-Copy
-Edit
+source venv/bin/activate     # Windows: venv\Scripts\activate
 pip install -r requirements.txt
-4. Run the API locally
-bash
-Copy
-Edit
 uvicorn main:app --reload
-Replace main:app with your actual filename and app instance if different.
-
-🌐 API Usage
-Endpoint
-http
+🧪 Example Usage
+Request
+bash
 Copy
 Edit
 POST /predict
-Request Body
-json
-Copy
-Edit
+Content-Type: application/json
+
 {
-  "text": "I love using this product!"
+  "text": "I absolutely love this!"
 }
 Response
 json
@@ -68,42 +76,35 @@ Edit
     "negative": 0.02
   }
 }
-🚀 Deployment on Azure
-To deploy this API to Azure App Service:
+🐙 CI/CD with GitHub Actions
+The repo includes a GitHub Actions workflow (.github/workflows/docker-build.yml) that:
 
-Create a Resource Group and App Service on Azure.
+Builds the Docker image
 
-Connect your GitHub repo for CI/CD or push via Azure CLI.
+Optionally pushes it to Docker Hub or Azure Container Registry
 
-Set environment variables (if needed) in Azure Portal.
+Can auto-deploy to Azure App Service
 
-Use Azure Logs to debug and monitor usage.
+☁️ Azure Deployment Steps
+Create an Azure App Service & Resource Group.
+
+Connect to GitHub repo via Deployment Center.
+
+Set up environment variables (if needed).
+
+Optionally push Docker image to Azure Container Registry (ACR).
+
+🧾 API Documentation
+Once running, you can access:
+
+Swagger UI → /docs
+
+ReDoc → /redoc
 
 📄 License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License.
 
-🙌 Acknowledgments
-Microsoft Azure for hosting
+👤 Author
+Niket Bhatt
+GitHub: @niketbhatt2002
 
-Open-source NLP libraries
-
-FastAPI / Flask community
-
-Author: Niket Bhatt
-
-yaml
-Copy
-Edit
-
----
-
-
-
-
-
-
-
-
-
-
-Ask ChatGP
