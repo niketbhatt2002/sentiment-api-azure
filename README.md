@@ -1,8 +1,4 @@
-ere's a well-structured and attractive version of the README:
 
-markdown
-Copy
-Edit
 # Sentiment API (Azure Deployment)
 
 A simple and scalable sentiment analysis API built with Python and deployed on Microsoft Azure. This project leverages natural language processing to determine the sentiment (positive, negative, neutral) of a given text input via a RESTful API.
